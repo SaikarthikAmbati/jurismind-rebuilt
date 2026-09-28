@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-900 text-ink-100 font-body antialiased;
+  background-image: radial-gradient(circle at 15% 0%, #0f1526 0%, #0a0e1a 55%, #070a13 100%);
+}
+
+::selection {
+  background: rgba(201, 166, 103, 0.35);
+}
+
+/* Slim, quiet scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(199, 204, 220, 0.14);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(199, 204, 220, 0.24);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid #c9a667;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/[0.035] border border-white/[0.07] shadow-glass backdrop-blur-xl;
+  }
+
+  .glass-panel-strong {
+    @apply bg-white/[0.055] border border-white/[0.09] shadow-glass backdrop-blur-xl;
+  }
+
+  .brass-divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-brass-500/30 to-transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .animate-drift-reverse {
+    animation: none !important;
+  }
+}
